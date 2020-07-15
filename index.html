@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Calendar</title>
+	<link rel="stylesheet" href="style.css">
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
+	<link href="https://fonts.googleapis.com/css2?family=Work+Sans:wght@300;400&display=swap" rel="stylesheet">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+</head>
+<body>
+	<div class="go-to-date">
+		<div class="modal-event">
+			<h2 class="title-mod">Go to date</h2>
+			<span class="close-win"><i class="fa fa-times-circle-o" aria-hidden="true"></i></span>
+		<form name="monthes" class="form">
+			<select name="month" id="select">
+				<option name="mon" value="0">Jan</option>
+				<option name="mon" value="1">Feb</option>
+				<option name="mon" value="2">Mar</option>
+				<option name="mon" value="3">Apr</option>
+				<option name="mon" value="4">May</option>
+				<option name="mon" value="5">Jun</option>
+				<option name="mon" value="6">Jul</option>
+				<option name="mon" value="7">Aug</option>
+				<option name="mon" value="8">Sep</option>
+				<option name="mon" value="9">Oct</option>
+				<option name="mon" value="10">Now</option>
+				<option name="mon" value="11">Dec</option>
+			</select>
+			<select name="year" id="select"></select>
+			<input type="button" class="button" value="Go to">
+		</form>
+		</div>
+	</div>
+	<div class="show-event">
+		<div class="modal-event edit-event">
+			<h3 class="title-event"></h3>
+			<span class="close-win"><i class="fa fa-times-circle-o" aria-hidden="true"></i></span>
+			<div class="row">
+				<p class="event"></p>
+			</div>
+			<div class="row">
+			<input type="button" class="button" value="Delete">
+			<input type="button" class="button" value="Edit">
+			</div>
+		</div>
+	</div>
+	<div class="parent-mod">
+		<div class="modal-event">
+			<div class="row">
+				<h2 class="title-mod">Enter your event</h2>
+
+				<span  class="close-win"><i class="fa fa-times-circle-o" aria-hidden="true"></i></span>
+
+			</div>
+			<h2 class="current-date"></h2>
+			<div>
+			<input type="text" class="enter">
+		<!-- </br> -->
+			<input type="submit" value="Assign" class="send">
+			</div>
+		</div>
+	</div>
+	<div class="row">
+<p class="prev"><i class="fa fa-minus" aria-hidden="true"></i></p>
+	<table id ="table" >
+		<caption></caption>
+		<tr>
+			<th>Mon</th>
+			<th>Tue</th>
+			<th>Wed</th>
+			<th>Thu</th>
+			<th>Fri</th>
+			<th>Sat</th>
+			<th>Sun</th>
+		</tr>
+		<tr>
+			<td></td>
+			<td></td>
+			<td></td>
+			<td></td>
+			<td></td>
+			<td></td>
+			<td></td>
+		</tr>
+		<tr>
+			<td></td>
+			<td></td>
+			<td></td>
+			<td></td>
+			<td></td>
+			<td></td>
+			<td></td>
+		</tr>
+		<tr>
+			<td></td>
+			<td></td>
+			<td></td>
+			<td></td>
+			<td></td>
+			<td></td>
+			<td></td>
+		</tr>
+		<tr>
+			<td></td>
+			<td></td>
+			<td></td>
+			<td></td>
+			<td></td>
+			<td></td>
+			<td></td>
+		</tr>
+		<tr>
+			<td></td>
+			<td></td>
+			<td></td>
+			<td></td>
+			<td></td>
+			<td></td>
+			<td></td>
+		</tr>
+		<tr>
+			<td></td>
+			<td></td>
+			<td></td>
+			<td></td>
+			<td></td>
+			<td></td>
+			<td></td>
+		</tr>
+	</table>
+	<p class="next"><i class="fa fa-plus" aria-hidden="true"></i></p>
+	</div>
+	<div class="manage">
+		<div class='add-event' title="ADD EVENT"><i class="fa fa-plus" aria-hidden="true"></i></div>
+		<div class="add-func"><i class="fa fa-calendar" aria-hidden="true"></i></div>
+	</div>
+	<script src='script.js'></script>
+</body>
+</html>
