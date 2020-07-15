@@ -41,6 +41,7 @@ const impurity = {
 	},
 
 	prevMonth() {
+		 sound();
 		month--;
 		if(month < 0) {
 			month = 11;
@@ -50,6 +51,7 @@ const impurity = {
 	},
 
 	nextMonth() {
+		 sound();
 		month++;
 		if(month > 11) {
 			month = 0;
@@ -128,6 +130,7 @@ class Calendar {
 		else {
 			caption.innerHTML = target.dataset.date;
 			target.classList.add('cyrcle');
+			touchSound();
 		}
 	}
 
@@ -138,6 +141,7 @@ class Calendar {
 		let titleEvent = document.querySelector('.title-event');
 		let event = document.querySelector('.event');
 		let caption = document.querySelector('caption');
+		sound();
 		showEvent.style.display = 'block';
 		titleEvent.innerHTML = key.dataset.date;
 		caption.innerHTML = key.dataset.date;
@@ -154,6 +158,7 @@ class Calendar {
 		const target = event.target;
 		let currentElem = Calendar.prototype.currentElem;
 		if(target.tagName =='I') {
+			sound();
 			 closeEvent.style.display = 'none';
 		}
 		if(target.tagName == 'DIV'&&
@@ -183,6 +188,7 @@ class Calendar {
 		if(key.classList.contains('active-style')) {
 			 key.style.color = '';
 		}
+		deleteSound();
 		Calendar.prototype.marcToday();
 	}
 
@@ -202,6 +208,7 @@ class Calendar {
 		let input = document.querySelector('.enter')
 			for(let elem of Calendar.prototype.allElemsTd()) {
 				if(elem.classList.contains('cyrcle')) {
+					sound();
 					modalWindow.style.display = 'block';
 				    (Calendar.prototype.editValue) ? input.value = Calendar.prototype.editValue : input.value = '';
 			}
@@ -263,6 +270,7 @@ class Calendar {
 		let target = event.target;
 		if (target.tagName == 'I'&&
 		    target.classList.contains('fa')) {
+			    sound();
 				goToDate.style.display = 'block';	    
 		}
 
@@ -281,10 +289,12 @@ class Calendar {
 				goToDate.style.display = 'none';
 		}
 		if(target.tagName == 'I') {
+				sound();
 				goToDate.style.display = 'none';
 		}
 		if(target.tagName == 'INPUT'&&
 		   target.classList.contains('button')) {
+		   	sound();
 		   	month =  document.forms.monthes.month.value;
 		    year =  document.forms.monthes.year.value;
 			calendar.assignValTable();
@@ -326,9 +336,11 @@ document.onkeydown = function(e) {
     switch (e.keyCode) {
         case 37:
            calendar.prevMonth();
+            sound()
             break;
         case 39:
             calendar.nextMonth();
+             sound();
             break;
     }
 }
@@ -340,11 +352,24 @@ function prevMonthNext(event) {
 	if(target.tagName == 'I'&&
 	   target.parentNode.classList.contains('prev')) {
 		calendar.prevMonth();
-	// calendar.highlightEvents()
 	}
 	if(target.tagName == 'I'&&
 	   target.parentNode.classList.contains ('next')) {
 		calendar.nextMonth();
-	// calendar.highlightEvents()
 }
+}
+function sound() {
+	 var audio = new Audio(); // Создаём новый элемент Audio
+	 audio.src = 'sound/household_nail_clipper_clip.mp3'; // Указываем путь к звуку "клика"
+	 audio.autoplay = true; // Автоматически запускаем
+}
+function deleteSound() {
+	 var audio = new Audio(); // Создаём новый элемент Audio
+	 audio.src = 'sound/aaddd6489d136e0.mp3'; // Указываем путь к звуку "клика"
+	 audio.autoplay = true; // Автоматически запускаем
+}
+function touchSound() {
+	 var audio = new Audio(); // Создаём новый элемент Audio
+	 audio.src = 'sound/foley-finger-nail-clip-01.mp3'; // Указываем путь к звуку "клика"
+	 audio.autoplay = true; // Автоматически запускаем
 }
