@@ -49,6 +49,8 @@ div.modal-event {
 	top:10%;
 	display: flex;
 	flex-direction: column;
+	text-align: center;
+	align-items: center;
 	margin:auto;
 	outline: 10px solid grey;
 	background-color: #ffffff;
@@ -65,10 +67,17 @@ h3.title-event {
 div.row {
 	display:flex;
 	flex-direction: row;
-	position: relative;
+	/*position: relative;*/
 	text-align: center;
 	align-items: center;
 	justify-content: center;
+}
+span.close-win > i.fa-times-circle-o {
+	position: absolute;
+	top:5px;
+	right: 5px;
+	font-weight: 100;
+	color:red;
 }
 .selectEvent{
 	background-color: silver;
@@ -149,13 +158,7 @@ select {
  input.send {
  	box-shadow: -3px 5px 4px silver;
  }
-span.close-win > i.fa-times-circle-o {
-	position: absolute;
-	top:5px;
-	right: 5px;
-	font-weight: 100;
-	color:red;
-}
+
 .title-mod {
 	margin-top: 20px;
 	font-family: 'Work Sans', sans-serif;
@@ -166,6 +169,10 @@ h2.current-date {
 	font-family: 'Work Sans', sans-serif;
 	font-size: 16px;
 	font-weight: 100;	
+}
+img.cal_img {
+	position: relative;
+	margin-top: 100px;
 }
 
 @media screen and (max-width: 500px) {
@@ -189,5 +196,9 @@ h2.current-date {
 	i.fa-minus,
 	p.next>i.fa-plus {
 		padding: 0;
+	}
+	p.prev,
+	p.next {
+		display: none;
 	}
 }
