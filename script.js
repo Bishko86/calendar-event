@@ -326,7 +326,46 @@ goTo.addEventListener('click', calendar.goToDate);
 const goToDate = document.querySelector('.go-to-date');
 goToDate.addEventListener('click', calendar.chooseDate);
 
+const touchMethods = {
+		startPoint: '',
+		startTime: '',
+		endPoint: '',
+		endTime: '',
+ 		handler() {
+ 		  //  this.startPoint.preventDefault();
+		   // this.startPoint.stopPropagation();
+ 		   let startX = this.startPoint.pageX; 
+ 		   let startY = this.startPoint.pageY;
+ 		   let endX = this.endPoint.pageX;
+ 		   let endY = this.endPoint.pageY;
+    	   console.log(this.startPoint + this.endPoint)
+    	   let differenceX = Math.abs(startX - endX)
+    	   let differenceY = Math.abs(startY - endY)
+    	   if(startX < endX && differenceX > 100 && differenceX > differenceY) {
+		calendar.prevMonth();
+    	   }
+    	   if(startX > endX && differenceX > 50 && differenceX > differenceY) {
+		calendar.nextMonth();
+    	   }
+
+		}
+}
+
 document.body.addEventListener('click', prevMonthNext);
+let touchEvent = document.getElementById('touchEvent');
+touchEvent.addEventListener('touchstart', function(event) {
+	// event.preventDefault();
+	// event.stopPropagation();
+	touchMethods.startPoint = event.changedTouches[0];
+	touchMethods.startTime = new Date().getTime();
+}, {passive: false});
+touchEvent.addEventListener('touchend', function(event) {
+	// event.preventDefault();
+	// event.stopPropagation();
+	touchMethods.endPoint = event.changedTouches[0];
+	touchMethods.endTime = new Date().getTime();
+	touchMethods.handler();
+}, false);
 
 document.onkeydown = function(e) {
 	if(document.querySelector('.parent-mod').style.display == 'block') {
@@ -358,18 +397,19 @@ function prevMonthNext(event) {
 		calendar.nextMonth();
 }
 }
+
+ let audio = new Audio();
+
 function sound() {
-	 var audio = new Audio(); // Создаём новый элемент Audio
-	 audio.src = 'sound/household_nail_clipper_clip.mp3'; // Указываем путь к звуку "клика"
-	 audio.autoplay = true; // Автоматически запускаем
+	 audio.src = 'sound/04715.mp3';
+	 audio.autoplay = true; 
 }
 function deleteSound() {
-	 var audio = new Audio(); // Создаём новый элемент Audio
-	 audio.src = 'sound/aaddd6489d136e0.mp3'; // Указываем путь к звуку "клика"
-	 audio.autoplay = true; // Автоматически запускаем
-}
+	 audio.src = 'sound/aaddd6489d136e0.mp3'; 
+	 audio.autoplay = true;
+	}
 function touchSound() {
-	 var audio = new Audio(); // Создаём новый элемент Audio
-	 audio.src = 'sound/foley-finger-nail-clip-01.mp3'; // Указываем путь к звуку "клика"
-	 audio.autoplay = true; // Автоматически запускаем
+	 audio.src = 'sound/foley-finger-nail-clip-01.mp3'; 
+	 audio.autoplay = true;
 }
+
